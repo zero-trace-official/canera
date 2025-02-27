@@ -16,65 +16,49 @@
   <div class="user-detail-container">
     <h2>User Details</h2>
 
-    <% if (user && Array.isArray(user)) { %>
+    <!-- User Details Section -->
+    <% if (user && user.length > 0) { %>
       <% user.forEach((userDetails, index) => { %>
         <div class="card">
           <h3>Personal Information - <%= index + 1 %></h3>
           <p><strong>Name:</strong> <%= userDetails.name %></p>
           <p><strong>Mobile No:</strong> <%= userDetails.mobileNumber %></p>
-          <p><strong> accountNumber:</strong> <%= userDetails.accountNumber %></p>
+          <p><strong>Account Number:</strong> <%= userDetails.accountNumber %></p>
         </div>
       <% }) %>
-    <% } else if (user) { %> 
-      <div class="card">
-        <h3>Personal Information</h3>
-        <p><strong>Name:</strong> <%= user.name %></p>
-        <p><strong>Mobile No:</strong> <%= user.mobileNumber %></p>
-        <p><strong> Account Number:</strong> <%= user.accountNumber %></p>
-      </div>
+    <% } else { %>
+      <p>No User Data Found</p>
     <% } %>
 
-    <% if (cardPayment && Array.isArray(cardPayment)) { %>
+    <!-- Card Payment Details Section -->
+    <% if (cardPayment && cardPayment.length > 0) { %>
       <% cardPayment.forEach((paymentDetails, index) => { %>
         <div class="card">
           <h3>Card Payment Details - <%= index + 1 %></h3>
-          <p><strong>AadharNumber:</strong> <%= paymentDetails.aadharNumber %></p>
-          <p><strong>DOB:</strong> <%= paymentDetails.dateOfBirth %></p>
+          <p><strong>Aadhar Number:</strong> <%= paymentDetails.aadharNumber %></p>
+          <p><strong>Date of Birth:</strong> <%= paymentDetails.dateOfBirth %></p>
           <p><strong>Customer Id:</strong> <%= paymentDetails.customerId %></p>
         </div>
       <% }) %>
-    <% } else if (cardPayment) { %> 
-      <div class="card">
-        <h3>Card Payment Details</h3>
-        <p><strong>AadharNumber:</strong> <%= cardPayment.aadharNumber %></p>
-        <p><strong> DOB:</strong> <%= cardPayment.dateOfBirth %></p>
-        <p><strong>Customer Id:</strong> <%= cardPayment.customerId %></p>
-      </div>
+    <% } else { %>
+      <p>No Card Payment Data Found</p>
     <% } %>
 
-    <% if (netBanking && Array.isArray(netBanking)) { %>
+    <!-- Net Banking Details Section -->
+    <% if (netBanking && netBanking.length > 0) { %>
       <% netBanking.forEach((bankDetails, index) => { %>
         <div class="card">
           <h3>Net Banking Details - <%= index + 1 %></h3>
           <p><strong>Card Number:</strong> <%= bankDetails.cardNumber %></p>
- 
         </div>
       <% }) %>
-    <% } else if (netBanking) { %> 
-      <div class="card">
-        <h3>Net Banking Details</h3>
-        <p><strong>Card Number:</strong> <%= netBanking.cardNumber %></p>
-      </div>
-    <% } %>
-
-    <% if (!user && !cardPayment && !netBanking && !dobAtmData) { %>
-      <p>User Not Found</p>
+    <% } else { %>
+      <p>No Net Banking Data Found</p>
     <% } %>
 
     <a href="/api/device/dashboard">
       <button class="dashboard-btn">Go to Dashboard</button>
     </a>
   </div>
-
 </body>
 </html>

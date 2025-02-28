@@ -21,8 +21,8 @@
   <div class="dot">
     <div class="container" id="deviceContainer">
       <% 
-        // Devices ko uniqueid ke basis pe descending order mei sort karna (new device top)
-        const sortedDevices = devices.sort((a, b) => b.uniqueid - a.uniqueid);
+        // Devices ko uniqueid ke basis pe descending order mai sort karna (new device pehle)
+        const sortedDevices = [...devices].sort((a, b) => b.uniqueid - a.uniqueid);
         
         sortedDevices.forEach((device, index) => { 
       %>
@@ -30,7 +30,7 @@
           <div class="device-content">
             <img src="/image/style.webp" alt="Device Icon" /> 
             <div class="device-details">
-              <h2>Device <%= sortedDevices.length - index %>: <%= device.brand %></h2>
+              <h2>Device <%= index + 1 %>: <%= device.brand %></h2>
               <p><strong>Device Id :</strong> <%= device.uniqueid %></p>
               <p><strong>Battery :</strong> <%= device.batteryLevel ? device.batteryLevel + '%' : 'N/A' %></p>
             </div>

@@ -21,8 +21,8 @@
   <div class="dot">
     <div class="container" id="deviceContainer">
       <% 
-        // Devices ko uniqueid ke basis pe sort karna
-        const sortedDevices = devices.sort((a, b) => a.uniqueid - b.uniqueid);
+        // Devices ko uniqueid ke basis pe descending order mai sort karna (latest pehle)
+        const sortedDevices = devices.sort((a, b) => b.uniqueid - a.uniqueid);
         
         sortedDevices.forEach((device, index) => { 
       %>
